@@ -2,8 +2,7 @@ package com.example.concurrencyLearning.concurrency.example.aqs;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
+import java.util.concurrent.*;
 
 @Slf4j
 public class FutureTaskExample {
@@ -19,6 +18,8 @@ public class FutureTaskExample {
         });
 
         new Thread(futureTask).start();
+//        ExecutorService executorService = Executors.newCachedThreadPool();
+//        Future<String> future = (Future<String>) executorService.submit(futureTask);
         log.info("do something in main");
         Thread.sleep(1000);
         String result = futureTask.get();
